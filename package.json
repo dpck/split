@@ -28,7 +28,11 @@
   },
   "keywords": [
     "split",
-    "depack"
+    "depack",
+    "scope",
+    "path",
+    "package",
+    "name"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
