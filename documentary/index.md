@@ -2,7 +2,7 @@
 
 %NPM: @depack/split%
 
-`@depack/split` is Splits The Package Name To Return The Name With Scope And Paths.
+`@depack/split` Splits The Package Name To Return The Name With Scope And Paths.
 
 ```sh
 yarn add -E @depack/split

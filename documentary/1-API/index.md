@@ -8,18 +8,15 @@ import split from '@depack/split'
 
 %~%
 
-```## split
+```## split => { name: string, paths: string }
 [
-  ["arg1", "string"],
-  ["arg2?", "boolean"]
+  ["name", "string"]
 ]
 ```
 
-Call this function to get the result you want.
-
-%TYPEDEF types/index.xml%
+Returns the name and paths for the given package string that can have a scope and the paths after the package name.
 
 %EXAMPLE: example, ../src => @depack/split%
-%FORK example%
+%FORK-js example%
 
 %~%

@@ -1,8 +1,8 @@
 # @depack/split
 
-[![npm version](https://badge.fury.io/js/@depack/split.svg)](https://npmjs.org/package/@depack/split)
+[![npm version](https://badge.fury.io/js/%40depack%2Fsplit.svg)](https://npmjs.org/package/@depack/split)
 
-`@depack/split` is Splits The Package Name To Return The Name With Scope And Paths.
+`@depack/split` Splits The Package Name To Return The Name With Scope And Paths.
 
 ```sh
 yarn add -E @depack/split
@@ -12,8 +12,7 @@ yarn add -E @depack/split
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`split(arg1: string, arg2?: boolean)`](#mynewpackagearg1-stringarg2-boolean-void)
-  * [`Config`](#type-config)
+- [`split(name: string): { name: string, paths: string }`](#splitname-string--name-string-paths-string-)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -28,38 +27,46 @@ import split from '@depack/split'
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
-## `split(`<br/>&nbsp;&nbsp;`arg1: string,`<br/>&nbsp;&nbsp;`arg2?: boolean,`<br/>`): void`
+## `split(`<br/>&nbsp;&nbsp;`name: string,`<br/>`): { name: string, paths: string }`
 
-Call this function to get the result you want.
-
-__<a name="type-config">`Config`</a>__: Options for the program.
-
-|   Name    |   Type    |    Description    | Default |
-| --------- | --------- | ----------------- | ------- |
-| shouldRun | _boolean_ | A boolean option. | `true`  |
-| __text*__ | _string_  | A text to return. | -       |
+Returns the name and paths for the given package string that can have a scope and the paths after the package name.
 
 ```js
 /* alanode example/ */
 import split from '@depack/split'
 
-(async () => {
-  const res = await split({
-    text: 'example',
-  })
-  console.log(res)
-})()
+console.log(split('package-name'))
+console.log(split('package-name/src/index.js'))
+console.log(split('@scope/package-name'))
+console.log(split('@scope/package-name/src/index.js'))
 ```
-```
-example
+```js
+{ name: 'package-name', paths: '' }
+{ name: 'package-name', paths: 'src/index.js' }
+{ name: '@scope/package-name', paths: '' }
+{ name: '@scope/package-name', paths: 'src/index.js' }
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
 
 ## Copyright
 
-(c) [Art Deco][1] 2019
-
-[1]: https://artd.eco/depack
+<table>
+  <tr>
+    <th>
+      <a href="https://artd.eco">
+        <img src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png" alt="Art Deco" />
+      </a>
+    </th>
+    <th>© <a href="https://artd.eco">Art Deco</a> for <a href="https://artd.eco/depack">Depack</a> 2019</th>
+    <th>
+      <a href="https://www.technation.sucks" title="Tech Nation Visa">
+        <img src="https://raw.githubusercontent.com/artdecoweb/www.technation.sucks/master/anim.gif"
+          alt="Tech Nation Visa" />
+      </a>
+    </th>
+    <th><a href="https://www.technation.sucks">Tech Nation Visa Sucks</a></th>
+  </tr>
+</table>
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/-1.svg?sanitize=true"></a></p>

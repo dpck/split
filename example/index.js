@@ -1,9 +1,7 @@
 /* alanode example/ */
 import split from '../src'
 
-(async () => {
-  const res = await split({
-    text: 'example',
-  })
-  console.log(res)
-})()
+console.log(split('package-name'))
+console.log(split('package-name/src/index.js'))
+console.log(split('@scope/package-name'))
+console.log(split('@scope/package-name/src/index.js'))
