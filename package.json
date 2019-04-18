@@ -1,6 +1,6 @@
 {
   "name": "@depack/split",
-  "version": "0.0.0-pre",
+  "version": "1.0.0",
   "description": "Splits The Package Name To Return The Name With Scope And Paths.",
   "main": "build/index.js",
   "module": "src/index.js",
