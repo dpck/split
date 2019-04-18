@@ -1,29 +1,19 @@
-const { debuglog } = require('util');
-
-const LOG = debuglog('@depack/split')
-
 /**
- * Splits The Package Name To Return The Name With Scope And Paths.
- * @param {Config} [config] Options for the program.
- * @param {boolean} [config.shouldRun=true] A boolean option. Default `true`.
- * @param {string} config.text A text to return.
+ * Splits the package name possibly with scope and returns the name and the
+ * path within that page that was required.
+ * @param {string} from The package, e.g., `@depack/depack/src`, or `depack`.
  */
-               async function split(config = {}) {
-  const {
-    shouldRun = true,
-    text,
-  } = config
-  if (!shouldRun) return
-  LOG('@depack/split called with %s', text)
-  return text
+const split = (from) => {
+  let [scope, name, ...paths] = from.split('/')
+  if (!scope.startsWith('@') && name) {
+    paths = [name, ...paths]
+    name = scope
+  } else if (!scope.startsWith('@')) {
+    name = scope
+  } else {
+    name = `${scope}/${name}`
+  }
+  return { name, paths: paths.join('/') }
 }
 
-/* documentary types/index.xml */
-/**
- * @typedef {Object} Config Options for the program.
- * @prop {boolean} [shouldRun=true] A boolean option. Default `true`.
- * @prop {string} text A text to return.
- */
-
-
-module.exports = split
+module.exports=split
